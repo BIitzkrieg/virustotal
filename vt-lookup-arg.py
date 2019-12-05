@@ -34,7 +34,7 @@ for ioc in iocList:
         elif results['response_code'] == 0:
             print("Hash: ", str(ioc), "\nNot Found in VT")
 
-    ## SHA-1
+    # SHA-1
     elif re.match(r"(^[a-fA-F\d]{40}$)", str(ioc)):
         results = v.rscReport(ioc)
         seperator()
@@ -46,7 +46,7 @@ for ioc in iocList:
         elif results['response_code'] == 0:
             print("Hash: ", str(ioc), "\nNot Found in VT")
 
-    ## SHA - 256
+    # SHA - 256
     elif re.match(r"(^[a-fA-F\d]{64}$)", str(ioc)):
         results = v.rscReport(ioc)
         seperator()
@@ -70,45 +70,6 @@ for ioc in iocList:
             print("Last Scan: " + results['scan_date'])
             print("VT Results:", results['positives'], '\\', results['total'])
 
-            try:
-                if results['detected_urls']:
-                    print()
-                    print("First 5 Detected URL's Under This Domain:")
-                    for hit in results['detected_urls'][:5]:
-                        print(hit['url'] + " " + str(hit['positives']), '\\', str(hit['total']))
-            except:
-                pass
-
-            try:
-                if results['detected_referrer_samples']:
-                    print()
-                    print("First 5 Detected Referrer Samples:")
-                    for hit in results['detected_referrer_samples'][:5]:
-                        print(hit['sha256'] + " " + str(hit['positives']), '\\', str(hit['total']))
-
-            except:
-                pass
-
-            try:
-                if results['detected_downloaded_samples']:
-                    print()
-                    print("First 5 Detected Downloaded Files:")
-                    for hit in results['detected_downloaded_samples'][:5]:
-                        print(hit['sha256'] + " " + str(hit['positives']), '\\', str(hit['total']))
-
-            except:
-                pass
-
-            try:
-                if results['detected_communicating_samples']:
-                    print()
-                    print("First 5 Detected Communicating Samples:")
-                    for hit in results['detected_communicating_samples'][:5]:
-                        print(hit['sha256'] + " " + str(hit['positives']), '\\', str(hit['total']))
-
-            except:
-                pass
-
         elif results['response_code'] == 0:
             print("URL: ", str(ioc), "\nNot Found in VT")
             print()
@@ -119,7 +80,6 @@ for ioc in iocList:
         seperator()
         if results['response_code'] == 1:
             print("Domain: " + str(ioc))
-            # print(results)
             print()
             try:
                 if results['whois']:
@@ -148,7 +108,6 @@ for ioc in iocList:
                     print("First 5 Detected Referrer Samples:")
                     for hit in results['detected_referrer_samples'][:5]:
                         print(hit['sha256'] + " " + str(hit['positives']), '\\', str(hit['total']))
-
             except:
                 pass
 
@@ -158,7 +117,6 @@ for ioc in iocList:
                     print("First 5 Detected Downloaded Files:")
                     for hit in results['detected_downloaded_samples'][:5]:
                         print(hit['sha256'] + " " + str(hit['positives']), '\\', str(hit['total']))
-
             except:
                 pass
 
@@ -168,7 +126,6 @@ for ioc in iocList:
                     print("First 5 Detected Communicating Samples:")
                     for hit in results['detected_communicating_samples'][:5]:
                         print(hit['sha256'] + " " + str(hit['positives']), '\\', str(hit['total']))
-
             except:
                 pass
 
@@ -195,20 +152,16 @@ for ioc in iocList:
         if results['response_code'] == 1:
             print("IP: " + str(ioc))
             print()
-            # print(results)
             try:
                 if results['country']:
                     print("Country Code: " + results['country'])
-            except:
-                pass
-            try:
                 if results['as_owner']:
                     print("Owner: " + results['as_owner'])
             except:
                 pass
             try:
                 if results['detected_urls']:
-
+                    print()
                     print("First 5 Detected URL's Under This IP:")
                     for hit in results['detected_urls'][:5]:
                         print(hit['url'] + " " + str(hit['positives']), '\\', str(hit['total']))
@@ -231,7 +184,6 @@ for ioc in iocList:
                     print("First 5 Detected Downloaded Files:")
                     for hit in results['detected_downloaded_samples'][:5]:
                         print(hit['sha256'] + " " + str(hit['positives']), '\\', str(hit['total']))
-
             except:
                 pass
 
@@ -248,7 +200,6 @@ for ioc in iocList:
             try:
                 if results['resolutions']:
                     print()
-                    # print(results['resolutions'])
                     print("First 5 Passive DNS Results:")
                     for hit in results['resolutions'][:5]:
                         print(hit['hostname'] + " - " + "Last Resolved: " + str(hit['last_resolved']))
@@ -258,7 +209,6 @@ for ioc in iocList:
             except:
                 pass
 
-
         elif results['response_code'] == 0:
             print("IP: ", str(ioc), "\nNot Found in VT")
-            print
+            print()
