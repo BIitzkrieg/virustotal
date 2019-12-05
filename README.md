@@ -52,10 +52,16 @@ Usage: python3 vt3-arg.py [ioc]
 Example Output:
 ```
 ========================================================================
+SHA-256:c88fe271ef62527aa9041e92c3afe773674c82fceb82dd2d5ac767d5fc78b4f2
+
+Last Scan: 2019-12-05 16:49:39
+VT Results: 67 \ 72
+========================================================================
 IP: 159.69.186.9
 
 Country Code: DE
 Owner: Hetzner Online GmbH
+
 First 5 Detected URL's Under This IP:
 https://ubabnkplc.com/sdcx/e4563cdce29de5103cde72db0917527f/login.php?cmd=login_submit&id=9232c87d763e6f4556cf876409478d099232c87d763e6f4556cf876409478d09&session=9232c87d763e6f4556cf876409478d099232c87d763e6f4556cf876409478d09 6 \ 72
 
@@ -82,9 +88,5 @@ First 5 Passive DNS Results:
 0.facebook.com.mrproxy.de - Last Resolved: 2019-11-14 13:03:28
 0.gz.cn.com - Last Resolved: 2019-11-28 12:01:00
 0.rqcu.com - Last Resolved: 2019-11-06 08:50:28
-========================================================================
-SHA-256:c88fe271ef62527aa9041e92c3afe773674c82fceb82dd2d5ac767d5fc78b4f2
 
-Last Scan: 2019-12-05 16:49:39
-VT Results: 67 \ 72
 ```
