@@ -10,6 +10,8 @@ https://github.com/jwalker/Virustotal-Module
 
 Reads in a list of IOC's from a file (IP, Domain, URL, MD5, SHA-1, SHA-256 hashes) and returns information from VT.
 
+Usage: python3 vt3-lookup.py
+
 - Hashes
   - Last scan date
   - Positive AV results / total
@@ -44,9 +46,9 @@ Reads in a list of IOC's from a file (IP, Domain, URL, MD5, SHA-1, SHA-256 hashe
 
 Reads in 1 or more IOC's as aguments (IP, Domain, URL, MD5, SHA-1, SHA-256 hashes) and returns information from VT.
 
-Usage: python3 vt3-arg.py [ioc]
+Usage: python3 vt-lookup-arg.py [ioc]
 
-
+Provides same data as above.
 
 
 # Example Output:
