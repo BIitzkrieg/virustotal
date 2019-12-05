@@ -49,7 +49,7 @@ Usage: python3 vt3-arg.py [ioc]
 
 
 
-Example Output:
+# Example Output:
 ```
 ========================================================================
 SHA-256:c88fe271ef62527aa9041e92c3afe773674c82fceb82dd2d5ac767d5fc78b4f2
