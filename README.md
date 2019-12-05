@@ -25,20 +25,20 @@ Reads in a list of IOC's from a file (IP, Domain, URL, MD5, SHA-1, SHA-256 hashe
     - Expiry data
     - Update Date
     - Administrative Country
-  - Detected URL's
-  - Detected Referrer Samples
-  - Detected Downloaded Samples
-  - Detected Communicating Samples
-  - Passive DNS Results
+  - Detected URL's (First 5)
+  - Detected Referrer Samples (First 5)
+  - Detected Downloaded Samples (First 5)
+  - Detected Communicating Samples (First 5)
+  - Passive DNS Results (First 5)
     
 - IP
   - Country Code
   - Owner
-  - Detected URL's
-  - Detected Referrer Samples
-  - Detected Downloaded Samples
-  - Detected Communicating Samples
-  - Passive DNS Results
+  - Detected URL's (First 5)
+  - Detected Referrer Samples (First 5)
+  - Detected Downloaded Samples (First 5)
+  - Detected Communicating Samples (First 5)
+  - Passive DNS Results (First 5)
   
 # vt-lookup-arg.py
 
