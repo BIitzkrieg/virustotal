@@ -1,84 +1,104 @@
 # VT Lookup Script
-# Andrew Danis 11/21/19
-# Pass 1 or more Hashes/Domains/URL's/IP's as arguments to VT for lookup
+# Andrew Danis
+# Looks up info on Hashes, Domains, IP's, and URL's via Virustotal
 
 from vtjwalk import *
 import re
-
-
-# include standard modules
-import argparse
+from time import sleep
 import sys
 
-# initiate the parser
-iocList = set(sys.argv[1:])
+premium_api = True
 
-###############################################################
-
-v = Virustotal()
 
 def seperator():
     print("========================================================================")
 
 
-for ioc in iocList:
+def vtMain(iocList):
+    v = Virustotal()
+    count = 0
+    for ioc in iocList:
+        count += 1
+        if premium_api == True:
+            print("Premium API set... We will use up to the limit you set in the script based on your subscription")
+            if count == 2:
+                print("Hit Premium API limit.. exiting")
+                break
+            vtLogic(ioc, v, count)
+
+        elif premium_api == False:
+            print("Regular API set... Script will wait 60 seconds every 4 IOC's")
+            if count == 4:
+                count = 0
+                print("Sleeping, waiting for VT API", sleep(60))
+                continue
+            vtLogic(ioc, v, count)
+
+def vtLogic(ioc, v, count):
     # MD5
     if re.match(r"(^[a-fA-F\d]{32}$)", str(ioc)):
         results = v.rscReport(ioc)
         seperator()
         if results['response_code'] == 1:
+            count += 1
             print("MD5: " + str(ioc))
             print()
             print("Last Scan: " + results['scan_date'])
             print("VT Results:", results['positives'], '\\', results['total'])
         elif results['response_code'] == 0:
-            print("Hash: ", str(ioc), "\nNot Found in VT")
+            count += 1
+            print("Hash: ", str(ioc),"\nNot Found in VT")
 
     # SHA-1
     elif re.match(r"(^[a-fA-F\d]{40}$)", str(ioc)):
         results = v.rscReport(ioc)
         seperator()
         if results['response_code'] == 1:
+            count += 1
             print("SHA-1:" + str(ioc))
             print()
             print("Last Scan: " + results['scan_date'])
             print("VT Results:", results['positives'], '\\', results['total'])
         elif results['response_code'] == 0:
-            print("Hash: ", str(ioc), "\nNot Found in VT")
+            count += 1
+            print("Hash: ", str(ioc),"\nNot Found in VT")
 
     # SHA - 256
     elif re.match(r"(^[a-fA-F\d]{64}$)", str(ioc)):
         results = v.rscReport(ioc)
         seperator()
         if results['response_code'] == 1:
+            count += 1
             print("SHA-256:" + str(ioc))
             print()
             print("Last Scan: " + results['scan_date'])
             print("VT Results:", results['positives'], '\\', results['total'])
         elif results['response_code'] == 0:
-            print("Hash: ", str(ioc), "\nNot Found in VT")
+            count += 1
+            print("Hash: ", str(ioc),"\nNot Found in VT")
+
 
     # URL
-    elif re.match(
-            r"(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})",
-            str(ioc)):
+    elif re.match(r"(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})", str(ioc)):
         results = v.urlReport(ioc)
         seperator()
         if results['response_code'] == 1:
+            count += 1
             print("URL: " + str(ioc))
             print()
             print("Last Scan: " + results['scan_date'])
             print("VT Results:", results['positives'], '\\', results['total'])
-
         elif results['response_code'] == 0:
+            count += 1
             print("URL: ", str(ioc), "\nNot Found in VT")
-            print()
+
 
     # Domain
     elif re.match(r"^(?!:\/\/)([a-zA-Z0-9-_]+\.)*[a-zA-Z0-9][a-zA-Z0-9-_]+\.[a-zA-Z]{2,11}?$", str(ioc)):
         results = v.domainReport(ioc)
         seperator()
         if results['response_code'] == 1:
+            count += 1
             print("Domain: " + str(ioc))
             print()
             try:
@@ -94,7 +114,10 @@ for ioc in iocList:
                     print("Domain", whoisExpiry.group())
                     print("Domain", whoisUpdate.group())
                     print("Domain", whoisQuery.group())
+            except:
+                pass
 
+            try:
                 if results['detected_urls']:
                     print()
                     print("First 5 Detected URL's Under This Domain:")
@@ -102,6 +125,7 @@ for ioc in iocList:
                         print(hit['url'] + " " + str(hit['positives']), '\\', str(hit['total']))
             except:
                 pass
+
             try:
                 if results['detected_referrer_samples']:
                     print()
@@ -142,6 +166,7 @@ for ioc in iocList:
                 pass
 
         elif results['response_code'] == 0:
+            count += 1
             print("Domain: ", str(ioc), "\nNot Found in VT")
             print()
 
@@ -150,6 +175,7 @@ for ioc in iocList:
         results = v.ipReport(ioc)
         seperator()
         if results['response_code'] == 1:
+            count += 1
             print("IP: " + str(ioc))
             print()
             try:
@@ -210,5 +236,14 @@ for ioc in iocList:
                 pass
 
         elif results['response_code'] == 0:
+            count += 1
             print("IP: ", str(ioc), "\nNot Found in VT")
             print()
+    return count
+
+def main(iocList):
+    vtMain(iocList)
+
+if __name__ == '__main__':
+    iocList = set(sys.argv[1:])
+    main(iocList)
