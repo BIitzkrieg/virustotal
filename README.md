@@ -3,8 +3,8 @@ Collection of VT scripts for InfoSec
 
 ## Requirements
 
-the vtjwalk library
-An API key, defined in the vtwalk library.
+the vtjwalk library  
+An API key, defined in the vtwalk library.  
 - Standard, 4 requests/min
 - Enterprise, 1000 or however much you pay for
 
