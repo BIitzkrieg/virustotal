@@ -20,14 +20,14 @@ def vtMain(iocList):
     for ioc in iocList:
         count += 1
         if premium_api == True:
-            print("Premium API set... We will use up to the limit you set in the script based on your subscription")
-            if count == 2:
+            #print("Premium API set... We will use up to the limit you set in the script based on your subscription")
+            if count == 1000:
                 print("Hit Premium API limit.. exiting")
                 break
             vtLogic(ioc, v, count)
 
         elif premium_api == False:
-            print("Regular API set... Script will wait 60 seconds every 4 IOC's")
+            #print("Regular API set... Script will wait 60 seconds every 4 IOC's")
             if count == 4:
                 count = 0
                 print("Sleeping, waiting for VT API", sleep(60))
@@ -105,11 +105,11 @@ def vtLogic(ioc, v, count):
                 if results['whois']:
                     whois = results['whois']
                     whoisQuery = re.search(r"(Query time: \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})", str(whois))
-                    whoisCreate = re.search(r"(Create date: \d{4}-\d{2}-\d{2})", str(whois))
-                    whoisExpiry = re.search(r"(Expiry date: \d{4}-\d{2}-\d{2})", str(whois))
-                    whoisUpdate = re.search(r"(Update date: \d{4}-\d{2}-\d{2})", str(whois))
-                    whoisAdminCountry = re.search(r"(Administrative country: [a-zA-Z].+)", str(whois))
-                    print("Domain", whoisAdminCountry.group())
+                    whoisCreate = re.search(r"(Create date:|Creation Date: \d{4}-\d{2}-\d{2})", str(whois))
+                    whoisExpiry = re.search(r"(Expiry date:|Expiration Date: \d{4}-\d{2}-\d{2})", str(whois))
+                    whoisUpdate = re.search(r"(Update date:|Updated Date: \d{4}-\d{2}-\d{2})", str(whois))
+                    whoisRegistrar= re.search(r"(Registrar: [a-zA-Z].+)", str(whois))
+                    print("Domain", whoisRegistrar.group())
                     print("Domain", whoisCreate.group())
                     print("Domain", whoisExpiry.group())
                     print("Domain", whoisUpdate.group())
