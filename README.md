@@ -31,11 +31,11 @@ Usage: python3 vt3-lookup.py
 
 - Domain
   - WHOIS Data
+    - Registrar
     - Query Time
     - Create Date
     - Expiry data
     - Update Date
-    - Administrative Country
   - Detected URL's (First 5)
   - Detected Referrer Samples (First 5)
   - Detected Downloaded Samples (First 5)
