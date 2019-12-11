@@ -23,7 +23,7 @@ Usage: python3 vt3-lookup.py
 
 - Hashes
   - Last scan date
-  - Equivalent Hashes (i.e. if you give an MD5, it will tell you their respective SHA-1 & SHA-256 hash)
+  - Equivalent Hashes (i.e. if you give an MD5, it will tell you the respective SHA-1 & SHA-256 hash)
   - Positive AV results / total
   
 - URL
