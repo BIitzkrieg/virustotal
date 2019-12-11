@@ -44,6 +44,8 @@ def vtLogic(ioc, v, count):
             print("MD5: " + str(ioc))
             print()
             print("Last Scan: " + results['scan_date'])
+            print("SHA-1 Equivalent: " + results['sha1'])
+            print("SHA-256 Equivalent: " + results['sha256'])
             print("VT Results:", results['positives'], '\\', results['total'])
         elif results['response_code'] == 0:
             count += 1
@@ -55,9 +57,11 @@ def vtLogic(ioc, v, count):
         seperator()
         if results['response_code'] == 1:
             count += 1
-            print("SHA-1:" + str(ioc))
+            print("SHA-1: " + str(ioc))
             print()
             print("Last Scan: " + results['scan_date'])
+            print("MD5 Equivalent: " + results['md5'])
+            print("SHA-256 Equivalent: " + results['sha256'])
             print("VT Results:", results['positives'], '\\', results['total'])
         elif results['response_code'] == 0:
             count += 1
@@ -69,9 +73,11 @@ def vtLogic(ioc, v, count):
         seperator()
         if results['response_code'] == 1:
             count += 1
-            print("SHA-256:" + str(ioc))
+            print("SHA-256: " + str(ioc))
             print()
             print("Last Scan: " + results['scan_date'])
+            print("MD5 Equivalent: " + results['md5'])
+            print("SHA-1 Equivalent: " + results['sha1'])
             print("VT Results:", results['positives'], '\\', results['total'])
         elif results['response_code'] == 0:
             count += 1
