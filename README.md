@@ -6,7 +6,7 @@ Collection of VT scripts for InfoSec
 The vtjwalk library  
 An API key, defined in the vtjwalk library.  
 - Standard, 4 requests/min
-- Enterprise, 1000 or however much you pay for
+- Enterprise, 1000 requests/day or however much you pay for
 
 These values are configurable in the vtMain() function. Set the "premium_api" variable to True or False depending on what API key you use.
 
