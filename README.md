@@ -12,7 +12,7 @@ These values are configurable in the vtMain() function. Set the "premium_api" va
 
 # vtjwalk.py
 
-Ported Jalcon Walker's VT API 2.x to work with Python 3:
+Ported Jalcon Walker's VT API 2.x library to work with Python 3:
 https://github.com/jwalker/Virustotal-Module
 
 # vt-lookup.py
