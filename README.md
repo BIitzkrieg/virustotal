@@ -64,11 +64,12 @@ Provides same data as above.
 # Example Output:
 ```
 ========================================================================
-SHA-256:c88fe271ef62527aa9041e92c3afe773674c82fceb82dd2d5ac767d5fc78b4f2
+SHA-256: c88fe271ef62527aa9041e92c3afe773674c82fceb82dd2d5ac767d5fc78b4f2
 
 Last Scan: 2019-12-05 16:49:39
-VT Results: 67 \ 72
-========================================================================
+MD5 Equivalent: c5e079844366612d31507b9cef0cfd4d
+SHA-1 Equivalent: 3b6465f1677c43386eab4f1b3c7a66db810f0833
+VT Results: 67 \ 72================================================
 IP: 159.69.186.9
 
 Country Code: DE
