@@ -1,5 +1,6 @@
 # VT Lookup Script
 # Andrew Danis
+# 1-16-20
 # Looks up info on Hashes, Domains, IP's, and URL's via Virustotal
 
 from vtjwalk import *
@@ -44,8 +45,8 @@ def vtLogic(ioc, v, count):
             print("MD5: " + str(ioc))
             print()
             print("Last Scan: " + results['scan_date'])
-            print("SHA-1 Equivalent: " + results['sha1'])
-            print("SHA-256 Equivalent: " + results['sha256'])
+            print("Equivalent SHA-1: " + results['sha1'])
+            print("Equivalent SHA-256: " + results['sha256'])
             print("VT Results:", results['positives'], '\\', results['total'])
         elif results['response_code'] == 0:
             count += 1
@@ -60,8 +61,8 @@ def vtLogic(ioc, v, count):
             print("SHA-1: " + str(ioc))
             print()
             print("Last Scan: " + results['scan_date'])
-            print("MD5 Equivalent: " + results['md5'])
-            print("SHA-256 Equivalent: " + results['sha256'])
+            print("Equivalent MD5: " + results['md5'])
+            print("Equivalent SHA-256: " + results['sha256'])
             print("VT Results:", results['positives'], '\\', results['total'])
         elif results['response_code'] == 0:
             count += 1
@@ -76,8 +77,8 @@ def vtLogic(ioc, v, count):
             print("SHA-256: " + str(ioc))
             print()
             print("Last Scan: " + results['scan_date'])
-            print("MD5 Equivalent: " + results['md5'])
-            print("SHA-1 Equivalent: " + results['sha1'])
+            print("Equivalent MD5: " + results['md5'])
+            print("Equivalent SHA-1: " + results['sha1'])
             print("VT Results:", results['positives'], '\\', results['total'])
         elif results['response_code'] == 0:
             count += 1
