@@ -252,5 +252,5 @@ def main(iocList):
     vtMain(iocList)
 
 if __name__ == '__main__':
-    iocList = set(sys.argv[1:])
+    iocList = list(dict.fromkeys(sys.argv[1:]))
     main(iocList)
