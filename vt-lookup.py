@@ -17,7 +17,7 @@ def seperator():
 def vtMain():
     f = open("hashes.txt")
     contents = f.read()
-    file_as_list = set(contents.splitlines())
+    file_as_list = list(dict.fromkeys((contents.splitlines())))
     v = Virustotal()
     count = 0
     for ioc in file_as_list:
