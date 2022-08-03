@@ -13,7 +13,7 @@ def seperator():
     print("========================================================================")
 
 def vtMain():
-    f = open("hashes.txt")
+    f = open("ioc.txt")
     contents = f.read()
     file_as_list = list(dict.fromkeys((contents.splitlines())))
     count = 0
