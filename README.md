@@ -107,6 +107,6 @@ First 5 Passive DNS Results:
 # vt-arg-v3.py
 Reads in 1 or more IOC's as aguments (IP, Domain, URL, MD5, SHA-1, SHA-256 hashes) and returns information from VT.
 
-Usage: python3 vt-lookup-arg.py [ioc]
+Usage ex: python3 vt-lookup-arg.py [ioc] [ioc] [ioc]
 
 Updated to support the VT3 API, moving away from the legacy VT2 API and dependency on Jalcon Walker's Library.
