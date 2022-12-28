@@ -110,3 +110,24 @@ Reads in 1 or more IOC's as aguments (IP, Domain, URL, MD5, SHA-1, SHA-256 hashe
 Usage ex: python3 vt-lookup-arg.py [ioc] [ioc] [ioc]
 
 Updated to support the VT3 API, moving away from the legacy VT2 API and dependency on Jalcon Walker's Library.
+
+# Example Output:
+```
+========================================================================
+Hash: 439b02fde88880a849a8d51f5516f330
+
+Last Scan: Sun Jun 13 05:20:20 2021 EST
+Equivalent MD5: 439b02fde88880a849a8d51f5516f330
+Equivalent SHA-1: 2b6fece252a5083cf809cf1a3ed64776cade5b35
+Equivalent SHA-256: 238057ab39a12934ed501e0c9b1a895a7e80c40db43f5f5787edc088997d773d
+VT Results: 54 \ 69
+========================================================================
+Domain: windows-office365.com
+VT Results: 13 \ 24
+========================================================================
+IP: 194.195.211.26
+VT Results: 6 \ 18
+========================================================================
+URL: http://windows-office365.com/
+VT Results: 8 \ 18
+```
