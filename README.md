@@ -104,3 +104,9 @@ First 5 Passive DNS Results:
 0.rqcu.com - Last Resolved: 2019-11-06 08:50:28
 
 ```
+# vt-arg-v3.py
+Reads in 1 or more IOC's as aguments (IP, Domain, URL, MD5, SHA-1, SHA-256 hashes) and returns information from VT.
+
+Usage: python3 vt-lookup-arg.py [ioc]
+
+Updated to support the VT3 API, moving away from the legacy VT2 API and dependency on Jalcon Walker's Library.
